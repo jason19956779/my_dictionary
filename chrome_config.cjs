@@ -8,12 +8,14 @@ module.exports = {
     // run: {
     //     firefox: "nightly",
     // },
-    "artifactsDir": "firefox_build",
+    "artifactsDir": "chrome_build",
     ignoreFiles: [
         ".gitignore",
         "CHANGELOG.md",
         "firefox_config.js",
         "chrome_config.js",
+        "firefox_config.cjs",
+        "chrome_config.cjs",
         "HOWTO.md",
         "firefox_build",
         "chrome_build",

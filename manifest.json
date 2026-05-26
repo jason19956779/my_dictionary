@@ -5,24 +5,30 @@
       "strict_min_version": "65.0"
     }
   },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "My Dictionary",
   "description": "Get definition or translation of the selected word(s) in popup (multiple choices)",
-  "version": "1.0.01",
+  "version": "2.0.0",
   "permissions": [
     "storage",
-    "webRequest",
-    "webRequestBlocking",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
     "<all_urls>"
   ],
-  "background": {
-    "scripts": [
-      "data/internal_libs/dictionaries_data.js",
-      "data/background/background.js"
-    ],
-    "persistent": true
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
   },
-  "browser_action": {
+  "background": {
+    "service_worker": "background-wrapper.js"
+  },
+  "action": {
     "default_icon": "data/icons/icon16.png",
     "default_title": "My Dictionary",
     "default_popup": "data/options/dictionary_for_menu_bar/dictionary_for_menu_bar.html"
@@ -37,9 +43,16 @@
     "128": "data/icons/icon128.png"
   },
   "web_accessible_resources": [
-    "data/icons/icon_original.png",
-    "data/iframe/iframe.html",
-    "data/icons/loading.gif"
+    {
+      "resources": [
+        "data/icons/icon_original.png",
+        "data/iframe/iframe.html",
+        "data/icons/loading.gif"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
   ],
   "content_scripts": [
     {
@@ -56,7 +69,7 @@
     }
   ],
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Alt+M"
       },

@@ -1,3 +1,10 @@
+## Version 2.0.0
+- ### [CHANGED]
+  - Migrated extension to Manifest V3 (MV3)
+  - Updated background script to run as a non-persistent background Service Worker
+  - Transitioned from blocking webRequest to declarativeNetRequest rules for header modification
+  - Standardized configuration for Chrome and Firefox builds with `.cjs` extensions
+
 ## Version 1.0.00
 - ### [ADDED]
   - Dictionary can be viewed from the toolbar/menu bar (Default shortcut: Alt+m on Windows Option+m on Mac)

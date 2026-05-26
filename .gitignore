@@ -364,3 +364,5 @@ firefox_build/
 chrome_build/
 
 HOWTO.md
+.spectra/
+openspec/.vector-search.db*
